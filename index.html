@@ -28,7 +28,7 @@
       left: 0px;
       width: 100%;
       height: 100%;
-      font-family: "Microsoft JhengHei";
+      font-family: sans;
       padding: 0px;
       margin: 0px;
       border: 0px;
@@ -41,12 +41,10 @@
       white-space:nowrap;
       */
     }
-
     /* disable focus border at Chrome */
     #textarea:focus {
       outline: none;
     }
-
     #test {
       position: absolute;
       visibility: hidden;
@@ -54,11 +52,11 @@
       left: 0px;
       font-size: 30px;
       white-space: pre;
+      font-family: sans;
       border: 0px;
       padding: 0.1em;
       margin: 0px;
     }
-
     #about {
       position: absolute;
       width: 20em;
@@ -73,13 +71,11 @@
     function adjust() {
       ta = document.getElementById("textarea");
       test = document.getElementById("test");
-
       test.textContent = ta.value;
       // Otherwise, the newline would not be counted.
       if (ta.value[ta.value.length - 1] == "\n") {
         test.innerHTML += '.';
       }
-
       ratioX = (window.innerWidth) / test.offsetWidth;
       ratioY = (window.innerHeight) / test.offsetHeight;
       ratio = Math.min(ratioX, ratioY);
@@ -94,9 +90,7 @@
       //ta.style.width = newWidth + "px";
       ta.style.paddingLeft = Math.max(0, Math.floor((window.innerWidth - newWidth) / 2)) + "px";
       ta.style.paddingRight = Math.max(0, Math.floor((window.innerWidth - newWidth) / 2)) + "px";
-
       //test.innerHTML = newHeight + " " + window.innerHeight + " " + fontSize;
-
       href = "#t=" + encodeURIComponent(ta.value);
       if (ta.style.color) {
         href += ";f=" + encodeURIComponent(ta.style.color);
@@ -106,13 +100,11 @@
       }
       window.location.hash = href;
     }
-
     // function showBox() {
     // 	opacity = 100;
     // 	window.clearTimeout(timeout);
     // 	setOpacity();
     // }
-
     // function fadeOut() {
     // 	opacity *= 0.985;
     // 	if (opacity > 1) {
@@ -122,17 +114,14 @@
     // 	}
     // 	setOpacity();
     // }
-
     // function setOpacity() {
     // 	about = document.getElementById("about");
     // 	about.style.opacity = opacity / 100;
     // 	about.style.filter = "alpha(opacity=" + Math.round(opacity) + ")";
     // }
-
     function parseHash() {
       ta = document.getElementById("textarea");
       ta.focus();
-
       var queryString = {};
       window.location.href.replace(
         new RegExp("([^?=&;#]+)(=([^&;]*))", "g"),
@@ -151,7 +140,6 @@
       // timeout = window.setTimeout("fadeOut();", 1000);
       // setOpacity();
     }
-
     function init() {
       if (window.navigator.mozApps) {
         document.getElementById("firefox").style.display = "block";
